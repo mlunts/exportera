@@ -97,12 +97,12 @@
 		9C1211D92079418100307564 /* Exportera */ = {
 			isa = PBXGroup;
 			children = (
-				9C1211DA2079418100307564 /* AppDelegate.swift */,
-				9C1211DC2079418100307564 /* ViewController.swift */,
-				9C1211DE2079418100307564 /* Main.storyboard */,
-				9C1211E12079418100307564 /* Assets.xcassets */,
+				9C121208207941FC00307564 /* Model */,
+				9C1212092079420300307564 /* View */,
+				9C12120A2079421400307564 /* Controller */,
 				9C1211E32079418100307564 /* LaunchScreen.storyboard */,
 				9C1211E62079418100307564 /* Info.plist */,
+				9C1211E12079418100307564 /* Assets.xcassets */,
 			);
 			path = Exportera;
 			sourceTree = "<group>";
@@ -123,6 +123,30 @@
 				9C1211FC2079418100307564 /* Info.plist */,
 			);
 			path = ExporteraUITests;
+			sourceTree = "<group>";
+		};
+		9C121208207941FC00307564 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C1212092079420300307564 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C1211DE2079418100307564 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C12120A2079421400307564 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C1211DA2079418100307564 /* AppDelegate.swift */,
+				9C1211DC2079418100307564 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.earine.Exportera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,7 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.earine.Exportera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
