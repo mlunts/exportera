@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Firebase
 
 class User: NSObject {
-    var id : String?
+    //var id : String?
     var email : String?
     var firstName : String?
     var lastName : String?
@@ -20,15 +19,15 @@ class User: NSObject {
     var carNumber : String?
     var insuranceTerm : Date?
     
-    func getId() {
-        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-            self.id = snapshot.key
-        }, withCancel: nil)
+    init(email: String?, firstName: String?, lastName : String?) {
+        //self.id = id
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
     }
     
-    
-    init(firstName: String) {
-        self.firstName = firstName
+    func getFirstName() -> String {
+        return firstName!
     }
     
 

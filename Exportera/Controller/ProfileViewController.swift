@@ -7,33 +7,17 @@
 //
 
 import UIKit
-import Firebase
+
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameField: UILabel!
     
+    var currentUser: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        var firstName : String?
-        
-        let userID = Auth.auth().currentUser?.uid
-        Database.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            var firstName = value?["firstname"] as? String ?? ""
-            
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        
-        var user = User(firstName: firstName!)
-        
-        nameField = firstName.toString
+        updateUIWithUserData()
         
         // Do any additional setup after loading the view.
     }
@@ -43,6 +27,9 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateUIWithUserData() {
+        nameField.text = currentUser
+    }
 
 
     /*
