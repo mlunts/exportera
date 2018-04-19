@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameField: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var telNumLabel: UILabel!
     
-    var currentUser: String = ""
+    var user = User()
+    
+    var ref: DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUIWithUserData()
-        
+        ref = Database.database().reference()
+        getUserInfo()
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +35,30 @@ class ProfileViewController: UIViewController {
     }
     
     func updateUIWithUserData() {
-        nameField.text = currentUser
+        nameField.text = "\(user.firstName!) \(user.lastName!)"
+        cityLabel.text = user.city
+        telNumLabel.text = "Номер телефона: +\(user.telNumber!)"
+    }
+    
+    func getUserInfo() {
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            self.user.email = value?["email"] as? String ?? ""
+            self.user.firstName = value?["firstname"] as? String ?? ""
+            self.user.lastName = value?["lastname"] as? String ?? ""
+            self.user.city = value?["city"] as? String ?? ""
+            self.user.telNumber = Int(value?["telnumber"] as? String ?? "")
+        
+            
+            //self.performSegue(withIdentifier: "goToProfile", sender: self)
+            
+            self.updateUIWithUserData()
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 
 

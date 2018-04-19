@@ -18,6 +18,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var telNumField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,7 @@ class RegisterViewController: UIViewController {
             
             self.ref = Database.database().reference() // инициализация БД
             let usersReference = self.ref.child("users").child(uid)
-            let values = ["firstname": self.firstNameField.text, "lastname": self.lastNameField.text, "email": self.emailField.text]
+            let values = ["firstname": self.firstNameField.text, "lastname": self.lastNameField.text, "email": self.emailField.text, "city": self.cityField.text, "telnumber": self.telNumField.text]
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if let err = err {
                         print(err)
@@ -63,17 +65,7 @@ class RegisterViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == emailField {
-//            passwordTextField.becomeFirstResponder()
-//        } else if textField ==  passwordField {
-//            textField.resignFirstResponder()
-//        }
-//        return true
-//    }
-    
-    
+     
 
     /*
     // MARK: - Navigation

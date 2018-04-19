@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     
     var ref: DatabaseReference!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -30,7 +28,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: Any) {
-        
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
                 print(error!)
@@ -38,29 +35,6 @@ class LoginViewController: UIViewController {
                 print("log in successful")
             }
         }
-        
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let email = value?["email"] as? String ?? ""
-            let firstName = value?["firstname"] as? String ?? ""
-            let lastName = value?["lastname"] as? String ?? ""
-            
-            let user = User(email: email, firstName: firstName, lastName: lastName)
-            print(user.firstName as Any)
-            
-            let vc = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-            vc.currentUser = "hgfh"
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            //self.performSegue(withIdentifier: "goToProfile", sender: self)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
     }
     
     

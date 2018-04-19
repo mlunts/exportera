@@ -19,12 +19,14 @@ class User: NSObject {
     var carNumber : String?
     var insuranceTerm : Date?
     
-    init(email: String?, firstName: String?, lastName : String?) {
-        //self.id = id
-        self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
-    }
+//    init(email: String?, firstName: String?, lastName : String?, city : String?, telNumber : Int?) {
+//        //self.id = id
+//        self.email = email
+//        self.firstName = firstName
+//        self.lastName = lastName
+//        self.city = city
+//        self.telNumber = telNumber
+//    }
     
     func getFirstName() -> String {
         return firstName!
