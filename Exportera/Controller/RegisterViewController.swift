@@ -21,6 +21,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var telNumField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

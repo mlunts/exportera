@@ -18,9 +18,10 @@
 		9C121214207A940B00307564 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C121213207A940B00307564 /* GoogleService-Info.plist */; };
 		9C12121A207A9A6700307564 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C121219207A9A6700307564 /* RegisterViewController.swift */; };
 		9C12121C207A9AB200307564 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12121B207A9AB200307564 /* LoginViewController.swift */; };
-		9C121220207BD10600307564 /* RegisterCarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12121F207BD10600307564 /* RegisterCarInfoViewController.swift */; };
 		9C121222207BDC3900307564 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C121221207BDC3900307564 /* ProfileViewController.swift */; };
 		9C60AFA4207F46F600C8C72E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60AFA3207F46F600C8C72E /* User.swift */; };
+		9C7CAA6F2089D97B006CBAA6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CAA6E2089D97B006CBAA6 /* Order.swift */; };
+		9C7CAA712089D98B006CBAA6 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */; };
 		AF04ABF7D99B3AA77FE61923 /* Pods_Exportera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,9 +65,10 @@
 		9C121213207A940B00307564 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C121219207A9A6700307564 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9C12121B207A9AB200307564 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9C12121F207BD10600307564 /* RegisterCarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCarInfoViewController.swift; sourceTree = "<group>"; };
 		9C121221207BDC3900307564 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C60AFA3207F46F600C8C72E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C7CAA6E2089D97B006CBAA6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
 		AC8F13E2063A0AD916903DC6 /* Pods_ExporteraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExporteraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exportera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				9C60AFA3207F46F600C8C72E /* User.swift */,
+				9C7CAA6E2089D97B006CBAA6 /* Order.swift */,
+				9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +178,6 @@
 			children = (
 				9C12121B207A9AB200307564 /* LoginViewController.swift */,
 				9C121219207A9A6700307564 /* RegisterViewController.swift */,
-				9C12121F207BD10600307564 /* RegisterCarInfoViewController.swift */,
 				9C121221207BDC3900307564 /* ProfileViewController.swift */,
 				9C1211DA2079418100307564 /* AppDelegate.swift */,
 			);
@@ -518,12 +521,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7CAA712089D98B006CBAA6 /* DatabaseConnection.swift in Sources */,
 				9C121222207BDC3900307564 /* ProfileViewController.swift in Sources */,
-				9C121220207BD10600307564 /* RegisterCarInfoViewController.swift in Sources */,
 				9C60AFA4207F46F600C8C72E /* User.swift in Sources */,
 				9C12121C207A9AB200307564 /* LoginViewController.swift in Sources */,
 				9C12121A207A9A6700307564 /* RegisterViewController.swift in Sources */,
 				9C1211DB2079418100307564 /* AppDelegate.swift in Sources */,
+				9C7CAA6F2089D97B006CBAA6 /* Order.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
