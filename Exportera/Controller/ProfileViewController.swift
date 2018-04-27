@@ -55,8 +55,24 @@ class ProfileViewController: UIViewController {
         telNumLabel.text = "Номер телефона: +\(currentUser.telNumber!)"
     }
     
-
-
+    @IBAction func optionsButton(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Выйти из аккаунта", style: .destructive , handler:{ (UIAlertAction)in
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController1")
+            self.present(nextViewController, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
     /*
     // MARK: - Navigation
 

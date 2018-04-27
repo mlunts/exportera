@@ -21,10 +21,11 @@ class LoginViewController: UIViewController {
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
+              gifView.loadGif(name: "truck-animation")
         super.viewDidLoad()
         ref = Database.database().reference()
+
         
-      
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,12 +37,32 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
                 print(error!)
+                self.showAlert(title: "Ошибка авторизации", msg: "Введены неправильные данные", actions: nil)
             } else {
-                print("log in successful")
+                self.performSegue(withIdentifier: "goToProfile", sender: self)
             }
         }
     }
     
+    func showAlert(title: String, msg: String, actions:[UIAlertAction]?) {
+        
+        var actions = actions
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        if actions == nil {
+            actions = [UIAlertAction(title: "OK", style: .default, handler: nil)]
+        }
+        
+        for action in actions! {
+            alertVC.addAction(action)
+        }
+        
+        if let rootVC = UIApplication.shared.delegate?.window??.rootViewController {
+            rootVC.present(alertVC, animated: true, completion: nil)
+        } else {
+            print("Root view controller is not set.")
+        }
+    }
     
     
     // убирается клавиатура при нажатии в любой точке экрана
@@ -49,15 +70,5 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -24,6 +24,8 @@
 		9C7CAA712089D98B006CBAA6 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */; };
 		9C91DB19208F1E5600A3C3AE /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */; };
 		9C91DB1B208F1E8200A3C3AE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */; };
+		9CAA84B3209381EE00C5B6E4 /* gifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA84B2209381EE00C5B6E4 /* gifExtension.swift */; };
+		9CAA84B52093848A00C5B6E4 /* truck-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA84B42093848900C5B6E4 /* truck-animation.gif */; };
 		AF04ABF7D99B3AA77FE61923 /* Pods_Exportera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
 		9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
 		9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9CAA84B2209381EE00C5B6E4 /* gifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifExtension.swift; sourceTree = "<group>"; };
+		9CAA84B42093848900C5B6E4 /* truck-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "truck-animation.gif"; sourceTree = "<group>"; };
 		AC8F13E2063A0AD916903DC6 /* Pods_ExporteraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExporteraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exportera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,9 +138,11 @@
 				9C1212092079420300307564 /* View */,
 				9C12120A2079421400307564 /* Controller */,
 				9C1211E32079418100307564 /* LaunchScreen.storyboard */,
+				9CAA84B42093848900C5B6E4 /* truck-animation.gif */,
 				9C1211E62079418100307564 /* Info.plist */,
 				9C1211E12079418100307564 /* Assets.xcassets */,
 				9C121213207A940B00307564 /* GoogleService-Info.plist */,
+				9CAA84B2209381EE00C5B6E4 /* gifExtension.swift */,
 			);
 			path = Exportera;
 			sourceTree = "<group>";
@@ -181,10 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				9C12121B207A9AB200307564 /* LoginViewController.swift */,
-				9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */,
-				9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */,
 				9C121219207A9A6700307564 /* RegisterViewController.swift */,
 				9C121221207BDC3900307564 /* ProfileViewController.swift */,
+				9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */,
+				9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */,
 				9C1211DA2079418100307564 /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -332,6 +338,7 @@
 			files = (
 				9C1211E52079418100307564 /* LaunchScreen.storyboard in Resources */,
 				9C121214207A940B00307564 /* GoogleService-Info.plist in Resources */,
+				9CAA84B52093848A00C5B6E4 /* truck-animation.gif in Resources */,
 				9C1211E22079418100307564 /* Assets.xcassets in Resources */,
 				9C1211E02079418100307564 /* Main.storyboard in Resources */,
 			);
@@ -534,6 +541,7 @@
 				9C121222207BDC3900307564 /* ProfileViewController.swift in Sources */,
 				9C60AFA4207F46F600C8C72E /* User.swift in Sources */,
 				9C91DB19208F1E5600A3C3AE /* OrdersListViewController.swift in Sources */,
+				9CAA84B3209381EE00C5B6E4 /* gifExtension.swift in Sources */,
 				9C91DB1B208F1E8200A3C3AE /* MapViewController.swift in Sources */,
 				9C12121C207A9AB200307564 /* LoginViewController.swift in Sources */,
 				9C12121A207A9A6700307564 /* RegisterViewController.swift in Sources */,
