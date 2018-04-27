@@ -22,6 +22,8 @@
 		9C60AFA4207F46F600C8C72E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60AFA3207F46F600C8C72E /* User.swift */; };
 		9C7CAA6F2089D97B006CBAA6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CAA6E2089D97B006CBAA6 /* Order.swift */; };
 		9C7CAA712089D98B006CBAA6 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */; };
+		9C91DB19208F1E5600A3C3AE /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */; };
+		9C91DB1B208F1E8200A3C3AE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */; };
 		AF04ABF7D99B3AA77FE61923 /* Pods_Exportera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		9C60AFA3207F46F600C8C72E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C7CAA6E2089D97B006CBAA6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		9C7CAA702089D98B006CBAA6 /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
+		9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
+		9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AC8F13E2063A0AD916903DC6 /* Pods_ExporteraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExporteraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43DE027789ECFF0DFF41C6E /* Pods_Exportera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exportera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				9C12121B207A9AB200307564 /* LoginViewController.swift */,
+				9C91DB1A208F1E8200A3C3AE /* MapViewController.swift */,
+				9C91DB18208F1E5600A3C3AE /* OrdersListViewController.swift */,
 				9C121219207A9A6700307564 /* RegisterViewController.swift */,
 				9C121221207BDC3900307564 /* ProfileViewController.swift */,
 				9C1211DA2079418100307564 /* AppDelegate.swift */,
@@ -280,7 +286,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Marina Lunts";
 				TargetAttributes = {
 					9C1211D62079418100307564 = {
@@ -372,9 +378,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Exportera/Pods-Exportera-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,6 +533,8 @@
 				9C7CAA712089D98B006CBAA6 /* DatabaseConnection.swift in Sources */,
 				9C121222207BDC3900307564 /* ProfileViewController.swift in Sources */,
 				9C60AFA4207F46F600C8C72E /* User.swift in Sources */,
+				9C91DB19208F1E5600A3C3AE /* OrdersListViewController.swift in Sources */,
+				9C91DB1B208F1E8200A3C3AE /* MapViewController.swift in Sources */,
 				9C12121C207A9AB200307564 /* LoginViewController.swift in Sources */,
 				9C12121A207A9A6700307564 /* RegisterViewController.swift in Sources */,
 				9C1211DB2079418100307564 /* AppDelegate.swift in Sources */,
@@ -596,6 +607,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -603,6 +615,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -630,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -653,6 +666,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -660,6 +674,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -681,7 +696,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

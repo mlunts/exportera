@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameField: UILabel!
@@ -44,19 +43,17 @@ class ProfileViewController: UIViewController {
             self.currentUser.city = value?["city"] as? String ?? ""
             self.currentUser.telNumber = Int(value?["telnumber"] as? String ?? "")
             //self.performSegue(withIdentifier: "goToProfile", sender: self)
-             self.updateUIWithUserData()
+            self.updateUIWithUserData()
         }) { (error) in
             print(error.localizedDescription)
         }
     }
-    
     
     func updateUIWithUserData() {
         nameField.text = "\(currentUser.firstName!) \(currentUser.lastName!)"
         cityLabel.text = currentUser.city
         telNumLabel.text = "Номер телефона: +\(currentUser.telNumber!)"
     }
-    
     
 
 

@@ -17,9 +17,11 @@ target 'Exportera' do
     # Pods for testing
   end
 
+pod 'GoogleMaps'
 pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+
 
 end

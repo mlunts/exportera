@@ -9,16 +9,15 @@
 import Foundation
 
 class User: NSObject {
-    //var id : String?
     var email : String?
     var firstName : String?
     var lastName : String?
     var city : String?
     var telNumber : Int?
-    var licenseNumber : String?
-    var carNumber : String?
-    var insuranceTerm : Date?
-    
+//    var licenseNumber : String?
+//    var carNumber : String?
+//    var insuranceTerm : Date?
+//    
 //    init(email: String?, firstName: String?, lastName : String?, city : String?, telNumber : Int?) {
 //        //self.id = id
 //        self.email = email

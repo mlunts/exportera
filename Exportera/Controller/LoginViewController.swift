@@ -7,24 +7,29 @@
 //
 
 import UIKit
+
 import Firebase
 import FirebaseAuth
+
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var gifView: UIImageView!
     
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        // Do any additional setup after loading the view.
+        
+      
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     @IBAction func loginPressed(_ sender: Any) {
