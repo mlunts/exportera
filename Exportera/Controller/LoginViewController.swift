@@ -21,11 +21,9 @@ class LoginViewController: UIViewController {
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
-              gifView.loadGif(name: "truck-animation")
+        gifView.loadGif(name: "truck-animation")
         super.viewDidLoad()
         ref = Database.database().reference()
-
-        
     }
 
     override func didReceiveMemoryWarning() {

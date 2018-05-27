@@ -14,10 +14,10 @@ class User: NSObject {
     var lastName : String?
     var city : String?
     var telNumber : Int?
-//    var licenseNumber : String?
-//    var carNumber : String?
-//    var insuranceTerm : Date?
-//    
+    var licenseNumber : String?
+    var carNumber : String?
+    var insuranceTerm : Date?
+
 //    init(email: String?, firstName: String?, lastName : String?, city : String?, telNumber : Int?) {
 //        //self.id = id
 //        self.email = email
@@ -26,10 +26,5 @@ class User: NSObject {
 //        self.city = city
 //        self.telNumber = telNumber
 //    }
-    
-    func getFirstName() -> String {
-        return firstName!
-    }
-    
 
 }
