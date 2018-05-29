@@ -19,13 +19,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var gifView: UIImageView!
     
     var ref: DatabaseReference!
-
+    
     override func viewDidLoad() {
         gifView.loadGif(name: "truck-animation")
         super.viewDidLoad()
         ref = Database.database().reference()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -68,5 +68,5 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-
+    
 }

@@ -11,7 +11,7 @@ import Firebase
 
 class Order: NSObject {
     
-    var orderRef: DatabaseReference
+    var ref: DatabaseReference?
     
     var idOrder : String?
     var price: String?
@@ -27,29 +27,42 @@ class Order: NSObject {
     func updateOrder(status: StatusType?) {
         self.status = status
     }
-    
-    init(key: String, dictionary: Dictionary<String, AnyObject>) {
-        self.idOrder = key
-        
-        // Within the Joke, or Key, the following properties are children
-        
-        if let price = dictionary["price"] as? String {
-            self.price = price
+
+    init?(destination: String, price: String, idOrder: String = "") {
+        self.ref = nil
+        self.idOrder = idOrder
+        self.price = price
+        self.destination = destination
+    }
+
+    init?(snapshot: DataSnapshot) {
+        guard
+            let value = snapshot.value as? [String: AnyObject],
+            let price = value["price"] as? String,
+            let destination = value["pointOfDeparture"] as? String else {
+                return nil
         }
         
-        if let destination = dictionary["destination"] as? String {
-            self.destination = destination
-        } else {
-            self.destination = ""
-        }
-        
-        // The above properties are assigned to their key.
-        
-        self.orderRef = Database.database().reference().child("orders")
+        self.ref = snapshot.ref
+        self.idOrder = snapshot.key
+        self.price = price
+        self.destination = destination
     }
     
+    func toAnyObject() -> Any {
+        return [
+            "price": price,
+            "pointOfDeparture": destination
+        ]
+    }
     
-//    func toJSON() -> [String: AnyObject]
-//    
-//    init(fromFirebaseItem: FIRDataSnapshot)
+    static func order(from snapshot: DataSnapshot) -> Order? {
+        let orderDict = snapshot.value as? [String : AnyObject] ?? [:]
+        guard let destination = orderDict["pointOfDeparture"] as? String,
+            let price =  orderDict["price"] as? String,
+            let idOrder = snapshot.key as? String
+            else { return nil }
+        let order = Order(destination: destination, price: price, idOrder: idOrder)
+        return order
+    }
 }

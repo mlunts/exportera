@@ -13,12 +13,12 @@ import GoogleMaps
 class MapViewController: UIViewController, GMSMapViewDelegate,  CLLocationManagerDelegate  {
     
     
-//    @IBOutlet weak var mapView: UIView!
+    //    @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var googleMaps: GMSMapView!
     
     var locationManager = CLLocationManager()
-//    var locationSelected = Location.startLocation
-var currentLocation: CLLocation?
+    //    var locationSelected = Location.startLocation
+    var currentLocation: CLLocation?
     
     var locationStart = CLLocation()
     var locationEnd = CLLocation()
@@ -26,18 +26,18 @@ var currentLocation: CLLocation?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        mapView.isMyLocationEnabled = true
-//        view = mapView
-//
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
-
-    
+        //        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        //        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        //        mapView.isMyLocationEnabled = true
+        //        view = mapView
+        //
+        //        let marker = GMSMarker()
+        //        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        //        marker.title = "Sydney"
+        //        marker.snippet = "Australia"
+        //        marker.map = mapView
+        
+        
         
         self.googleMaps.delegate = self
         self.googleMaps?.isMyLocationEnabled = true
@@ -62,11 +62,11 @@ var currentLocation: CLLocation?
         
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     
-
+    
 }
