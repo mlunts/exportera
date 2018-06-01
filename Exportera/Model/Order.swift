@@ -14,9 +14,9 @@ class Order: NSObject {
     var ref: DatabaseReference?
     
     var idOrder : String?
-    var price: String?
+    var price: Double?
     var destination : String?
-    var distance : Double?
+    var distance : String?
     var typeOfOder: OrderType?
     var weightOfCargo : Double?
     var dimensions : Dimensions?
@@ -28,31 +28,22 @@ class Order: NSObject {
         self.status = status
     }
 
-    init?(destination: String, price: String, idOrder: String = "") {
+    init?(destination: String, price: String, idOrder: String, typeOfOder: String, weightOfCargo: String) {
         self.ref = nil
         self.idOrder = idOrder
-        self.price = price
+        self.price = Double(price)
         self.destination = destination
+        self.typeOfOder = OrderType(rawValue: typeOfOder)
+        self.weightOfCargo = Double(weightOfCargo)
     }
 
-    init?(snapshot: DataSnapshot) {
-        guard
-            let value = snapshot.value as? [String: AnyObject],
-            let price = value["price"] as? String,
-            let destination = value["pointOfDeparture"] as? String else {
-                return nil
-        }
-        
-        self.ref = snapshot.ref
-        self.idOrder = snapshot.key
-        self.price = price
-        self.destination = destination
-    }
     
     func toAnyObject() -> Any {
         return [
             "price": price,
-            "pointOfDeparture": destination
+            "pointOfDeparture": destination,
+            "typeOfOrder": typeOfOder,
+            "weightOfCargo": weightOfCargo
         ]
     }
     
@@ -60,9 +51,12 @@ class Order: NSObject {
         let orderDict = snapshot.value as? [String : AnyObject] ?? [:]
         guard let destination = orderDict["pointOfDeparture"] as? String,
             let price =  orderDict["price"] as? String,
-            let idOrder = snapshot.key as? String
+            let idOrder = snapshot.key as? String,
+            let typeOfOder = orderDict["typeOfOrder"] as? String,
+            let weightOfCargo = orderDict["weightOfCargo"] as? String
             else { return nil }
-        let order = Order(destination: destination, price: price, idOrder: idOrder)
+        let order = Order(destination: destination, price: price, idOrder: idOrder, typeOfOder: typeOfOder, weightOfCargo: weightOfCargo)
+
         return order
     }
 }

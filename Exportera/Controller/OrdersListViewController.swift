@@ -16,8 +16,8 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
     private var documents: [DataSnapshot] = []
     
     var orders = [Order]()
-    var selectedOrder: Order?
     var selectedOrderId: String?
+    var selectedOrder: Order?
     var ref = Database.database().reference()
     
     override func viewDidLoad() {
@@ -38,30 +38,19 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func detailsClicked(_ sender: Any) {
-//        let orderDetailVC = OrderDetailViewController()
-//        orderDetailVC.detailedOrder = selectedOrder
-        performSegue(withIdentifier: "goToDetails", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToDetails", let order = selectedOrder {
-            let orderDetailVC = segue.destination as! OrderDetailViewController
-//                  orderDetailVC.cityLabel = order.destination
-            orderDetailVC.detailedOrder = order
-            orderDetailVC.keyOrder = selectedOrderId
+    override func prepare (for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "btnInfoSegue") {
+            let svc = segue.destination as! OrderDetailViewController
+            svc.detailedOrder = selectedOrder
+            svc.keyOrder = selectedOrderId
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         selectedOrder = orders[indexPath.row]
         selectedOrderId = orders[indexPath.row].idOrder
-        //        performSegue(withIdentifier: "goToDetails", sender: self)
-    }
-    
-    
-    @IBAction func orderClicked(_ sender: Any) {
-        
+        print(selectedOrderId)
         let alert = UIAlertController(title: "Вы хотите взять данный заказ?", message: "Подтвердите действие", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { (UIAlertAction)in
@@ -70,10 +59,22 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
-        
     }
+    //
     
     
+    @IBAction func detailsButton(_ sender: UIButton) {
+        var superView = sender.superview
+        while !(superView is UITableViewCell) {
+            superView = superView?.superview
+        }
+        let cell = superView as! UITableViewCell
+        if let indexpath = tableView.indexPath(for: cell){
+            selectedOrder = orders[indexpath.row]
+            selectedOrderId = orders[indexpath.row].idOrder
+            print(selectedOrderId)
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -93,8 +94,7 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         let order = orders[indexPath.row]
-        
-        cell.priceLabel.text = "$\(order.price ?? "0")"
+        cell.priceLabel.text = "$\(order.price ?? 0)"
         cell.cityLabel.text = order.destination
         
         return cell

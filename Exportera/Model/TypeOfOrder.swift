@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum OrderType {
+enum OrderType: String{
     case cargo
     case documents
     case tyreDisc
     case package
-    case pallets
+    case pallets 
 }

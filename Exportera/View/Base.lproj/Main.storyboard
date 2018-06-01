@@ -333,28 +333,63 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="До: Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-ae-Fvu">
-                                <rect key="frame" x="16" y="82" width="183" height="27"/>
+                                <rect key="frame" x="16" y="82" width="183" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-9S-m2g" customClass="GMSMapView">
-                                <rect key="frame" x="50" y="365" width="275" height="229"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Hus-Pe-jdk">
+                                <rect key="frame" x="289" y="82" width="70" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Расстояние: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk3-5w-zpt">
+                                <rect key="frame" x="16" y="132" width="123" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Тип заказа:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLa-iI-eK8">
+                                <rect key="frame" x="16" y="182" width="258" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Вес груза:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlR-74-COH">
+                                <rect key="frame" x="16" y="232" width="183" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhP-ps-CjN">
+                                <rect key="frame" x="16" y="282" width="343" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="haR-uF-ixv"/>
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="TTE-ae-Fvu" id="Vy6-aL-3cj"/>
+                        <outlet property="dimensionsLabel" destination="uhP-ps-CjN" id="RO0-j6-kco"/>
+                        <outlet property="distanceLabel" destination="Zk3-5w-zpt" id="Efu-Me-2hS"/>
+                        <outlet property="priceLabel" destination="Hus-Pe-jdk" id="Sks-JY-AJg"/>
+                        <outlet property="typeOfOrderLabel" destination="JlR-74-COH" id="m0K-Ir-uj4"/>
+                        <outlet property="weightLabel" destination="JlR-74-COH" id="1Ey-a8-kv7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuB-3b-etr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720.8" y="-647.22638680659679"/>
+            <point key="canvasLocation" x="1720.8" y="-736.28185907046486"/>
         </scene>
         <!--Orders List View Controller-->
         <scene sceneID="fvs-9a-mi8">
@@ -402,13 +437,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-Qu-oFf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="62"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="orderClicked:" destination="mUt-vO-xeV" eventType="touchUpInside" id="cmv-1H-9pf"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="bcc-at-zbf">
                                                     <rect key="frame" x="327" y="18" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,7 +445,8 @@
                                                     <rect key="frame" x="327" y="18" width="33" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="detailsClicked:" destination="mUt-vO-xeV" eventType="touchUpInside" id="yGI-zB-aBd"/>
+                                                        <action selector="detailsButton:" destination="mUt-vO-xeV" eventType="touchUpInside" id="lfY-41-dm2"/>
+                                                        <segue destination="rNW-og-L4o" kind="show" identifier="btnInfoSegue" id="tn7-QO-rSt"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -430,7 +459,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="mUt-vO-xeV" id="e26-i6-CLc"/>
-                                    <outlet property="delegate" destination="mUt-vO-xeV" id="WUx-3o-0Oi"/>
+                                    <outlet property="delegate" destination="mUt-vO-xeV" id="h4v-3V-LeD"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ДОСТУПНЫЕ ЗАКАЗЫ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-Qf-Cz1">
@@ -459,7 +488,6 @@
                     <connections>
                         <outlet property="tableView" destination="k2c-JP-HQj" id="qSW-1x-aOG"/>
                         <segue destination="PfQ-6P-1FZ" kind="show" identifier="goToMap" id="Mpk-kC-TKU"/>
-                        <segue destination="rNW-og-L4o" kind="show" identifier="goToDetails" id="bFd-Li-K5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WEu-uU-Ljm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -535,7 +563,6 @@
         <image name="truck-animation.gif" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bFd-Li-K5t"/>
         <segue reference="qan-jv-Agn"/>
         <segue reference="Phl-EV-3iJ"/>
         <segue reference="VeZ-ki-brc"/>

@@ -12,4 +12,10 @@ class Dimensions: NSObject {
     var length : Double?
     var width : Double?
     var height : Double?
+    
+    init(height: String, length: String, width: String) {
+        self.height = Double(height)
+        self.length = Double(length)
+        self.width = Double(width)
+    }
 }

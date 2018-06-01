@@ -7,16 +7,17 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseDatabase
-
 
 class OrderDetailViewController: UIViewController {
 
     var detailedOrder: Order?
     var keyOrder : String?
-//    var orderReference: DatabaseReference?
-//    var ref = Database.database().reference()
+        @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var typeOfOrderLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var dimensionsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,13 @@ class OrderDetailViewController: UIViewController {
     }
     
 
-    @IBOutlet weak var cityLabel: UILabel!
-    
     func loadOrder(){
-        cityLabel.text = "До: \(String(describing: keyOrder))"
+        print(detailedOrder?.typeOfOder?.rawValue)
+        cityLabel.text = "До: \(detailedOrder?.destination ?? "Город")"
+        priceLabel.text = "$\(detailedOrder?.price ?? 0)"
+        typeOfOrderLabel.text = "Тип заказа: \(detailedOrder?.typeOfOder)"
+        weightLabel.text = "Вес груза: \(detailedOrder?.weightOfCargo ?? 0) кг"
+        dimensionsLabel.text = "Габариты груза: \(detailedOrder?.dimensions?.length) х \(detailedOrder?.dimensions?.width) x \(detailedOrder?.dimensions?.height)"
     }
-    
     
 }
