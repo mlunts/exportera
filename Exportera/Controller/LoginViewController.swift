@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
                 print(error!)
-                self.showAlert(title: "Ошибка авторизации", msg: "Введены неправильные данные", actions: nil)
+                self.showAlert(title: "Error!", msg: "Please try again. The email address or password you provided is not correct.", actions: nil)
             } else {
                 self.performSegue(withIdentifier: "goToProfile", sender: self)
             }

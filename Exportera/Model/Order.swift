@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 class Order: NSObject {
     
@@ -16,7 +17,7 @@ class Order: NSObject {
     var idOrder : String?
     var price: Double?
     var destination : String?
-    var distance : String?
+    var distance : Double?
     var typeOfOder: OrderType?
     var weightOfCargo : Double?
     var dimensions : Dimensions?
@@ -24,27 +25,24 @@ class Order: NSObject {
     var deliveredInfo : DeliveredInfo?
     var status : StatusType?
 
-    func updateOrder(status: StatusType?) {
+    
+    public func updateOrder(status: StatusType?) {
         self.status = status
     }
-
-    init?(destination: String, price: String, idOrder: String, typeOfOder: String, weightOfCargo: String) {
+    
+    public func setDistance(distance: Double?) {
+        self.distance = distance
+    }
+    
+    init?(destination: String, price: String, idOrder: String, typeOfOder: String, weightOfCargo: String, dimensions: Dimensions, customerNumber: String) {
         self.ref = nil
         self.idOrder = idOrder
         self.price = Double(price)
         self.destination = destination
         self.typeOfOder = OrderType(rawValue: typeOfOder)
         self.weightOfCargo = Double(weightOfCargo)
-    }
-
-    
-    func toAnyObject() -> Any {
-        return [
-            "price": price,
-            "pointOfDeparture": destination,
-            "typeOfOrder": typeOfOder,
-            "weightOfCargo": weightOfCargo
-        ]
+        self.dimensions = dimensions
+        self.customerNumber = Int(customerNumber)
     }
     
     static func order(from snapshot: DataSnapshot) -> Order? {
@@ -53,10 +51,16 @@ class Order: NSObject {
             let price =  orderDict["price"] as? String,
             let idOrder = snapshot.key as? String,
             let typeOfOder = orderDict["typeOfOrder"] as? String,
-            let weightOfCargo = orderDict["weightOfCargo"] as? String
+            let weightOfCargo = orderDict["weightOfCargo"] as? String,
+            let length = orderDict["length"] as? String,
+            let width = orderDict["width"] as? String,
+            let height = orderDict["height"] as? String,
+            let customerNumber = orderDict["customerNumber"] as? String
             else { return nil }
-        let order = Order(destination: destination, price: price, idOrder: idOrder, typeOfOder: typeOfOder, weightOfCargo: weightOfCargo)
-
+        let dimensions = Dimensions(height: height, length: length, width: width)
+        let order = Order(destination: destination, price: price, idOrder: idOrder, typeOfOder: typeOfOder, weightOfCargo: weightOfCargo, dimensions: dimensions, customerNumber: customerNumber)
+        
         return order
     }
+    
 }

@@ -52,19 +52,19 @@ class ProfileViewController: UIViewController {
     func updateUIWithUserData() {
         nameField.text = "\(currentUser.firstName!) \(currentUser.lastName!)"
         cityLabel.text = currentUser.city
-        telNumLabel.text = "Номер телефона: +\(currentUser.telNumber!)"
+        telNumLabel.text = "Mobile number: +\(currentUser.telNumber!)"
     }
     
     @IBAction func optionsButton(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Выйти из аккаунта", style: .destructive , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive , handler:{ (UIAlertAction)in
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController1")
             self.present(nextViewController, animated: true, completion: nil)
         }))
         
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
             print("User click Dismiss button")
         }))
         

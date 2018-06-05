@@ -11,7 +11,18 @@ import Foundation
 enum OrderType: String{
     case cargo
     case documents
-    case tyreDisc
-    case package
-    case pallets 
+    case tyreDisk
+    case packages
+    case pallets
+    
+    
+    var getType: String {
+        switch self {
+        case .cargo: return "Cargo"
+        case .documents: return "Documents"
+        case .tyreDisk: return "Tyre or Disks"
+        case .packages: return "Package"
+        case .pallets: return "Pallets"
+        }
+    }
 }

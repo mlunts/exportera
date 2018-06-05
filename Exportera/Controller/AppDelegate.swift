@@ -22,11 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
             GMSServices.provideAPIKey("AIzaSyBUG6NN62wVQvIybNobgDkaafLH2U-sEnQ")
         
-        FirebaseApp.configure() // подключение БД при открытии
-        
-//        let myDataBase = Database.database().reference()
-//        myDataBase.setValue("we've got data")
-        
+        FirebaseApp.configure() // подключение БД при открытии        
         return true
     }
 

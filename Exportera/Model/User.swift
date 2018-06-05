@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class User: NSObject {
     var email : String?
@@ -17,6 +18,8 @@ class User: NSObject {
     var licenseNumber : String?
     var carNumber : String?
     var insuranceTerm : Date?
+    
+    var ref: DatabaseReference?
 
 //    init(email: String?, firstName: String?, lastName : String?, city : String?, telNumber : Int?) {
 //        //self.id = id
@@ -27,4 +30,6 @@ class User: NSObject {
 //        self.telNumber = telNumber
 //    }
 
+    
+    
 }

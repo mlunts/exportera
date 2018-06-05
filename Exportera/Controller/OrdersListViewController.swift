@@ -39,24 +39,31 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare (for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "goToMap") {
+            let svc = segue.destination as! MapViewController
+            svc.detailedOrder = selectedOrder
+        }
+        
         if (segue.identifier == "btnInfoSegue") {
             let svc = segue.destination as! OrderDetailViewController
             svc.detailedOrder = selectedOrder
             svc.keyOrder = selectedOrderId
         }
+//        if (segue.identifier == "goToMap") {
+//            let svc = segue.destination as! MapViewController
+//            svc.detailedOrder = selectedOrder
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         selectedOrder = orders[indexPath.row]
         selectedOrderId = orders[indexPath.row].idOrder
-        print(selectedOrderId)
-        let alert = UIAlertController(title: "Вы хотите взять данный заказ?", message: "Подтвердите действие", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "Please confirm your action", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction)in
             self.performSegue(withIdentifier: "goToMap", sender: self)
         }))
-        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
     }
@@ -72,7 +79,6 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         if let indexpath = tableView.indexPath(for: cell){
             selectedOrder = orders[indexpath.row]
             selectedOrderId = orders[indexpath.row].idOrder
-            print(selectedOrderId)
         }
     }
     
@@ -100,6 +106,25 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    @IBAction func optionButton(_ sender: Any) {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive , handler:{ (UIAlertAction)in
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController1")
+            self.present(nextViewController, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+        
+    }
     
     
 }

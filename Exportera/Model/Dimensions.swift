@@ -9,9 +9,9 @@
 import Foundation
 
 class Dimensions: NSObject {
-    var length : Double?
-    var width : Double?
-    var height : Double?
+    var length : Double!
+    var width : Double!
+    var height : Double!
     
     init(height: String, length: String, width: String) {
         self.height = Double(height)
