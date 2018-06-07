@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
-    var ref: DatabaseReference! // референс к БД
+    private var ref: DatabaseReference! // референс к БД
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -61,7 +61,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    func showAlert(title: String, msg: String, actions:[UIAlertAction]?) {
+    private func showAlert(title: String, msg: String, actions:[UIAlertAction]?) {
         
         var actions = actions
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)

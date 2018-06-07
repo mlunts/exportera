@@ -12,7 +12,7 @@ import CoreLocation
 
 class Order: NSObject {
     
-    var ref: DatabaseReference?
+    private var ref: DatabaseReference?
     
     var idOrder : String?
     var price: Double?

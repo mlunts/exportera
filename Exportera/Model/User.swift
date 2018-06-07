@@ -29,7 +29,5 @@ class User: NSObject {
 //        self.city = city
 //        self.telNumber = telNumber
 //    }
-
-    
     
 }

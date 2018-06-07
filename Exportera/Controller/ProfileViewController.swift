@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var telNumLabel: UILabel!
     
-    var ref: DatabaseReference!
+    private var ref: DatabaseReference!
     var currentUser = User()
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     }
     
     
-    func getUserInfo(){
+    private func getUserInfo(){
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func updateUIWithUserData() {
+    private func updateUIWithUserData() {
         nameField.text = "\(currentUser.firstName!) \(currentUser.lastName!)"
         cityLabel.text = currentUser.city
         telNumLabel.text = "Mobile number: +\(currentUser.telNumber!)"

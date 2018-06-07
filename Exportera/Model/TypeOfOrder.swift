@@ -16,7 +16,7 @@ enum OrderType: String{
     case pallets
     
     
-    var getType: String {
+    public var getType: String {
         switch self {
         case .cargo: return "Cargo"
         case .documents: return "Documents"

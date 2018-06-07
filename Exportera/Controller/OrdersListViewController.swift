@@ -26,7 +26,7 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
         getOrders()
     }
     
-    func getOrders() {
+    private func getOrders() {
         ref.child("orders").observe(.childAdded, with: { (snapshot) in
             guard let order = Order.order(from: snapshot) else { return }
             self.orders.append(order)
@@ -49,10 +49,6 @@ class OrdersListViewController: UIViewController, UITableViewDataSource, UITable
             svc.detailedOrder = selectedOrder
             svc.keyOrder = selectedOrderId
         }
-//        if (segue.identifier == "goToMap") {
-//            let svc = segue.destination as! MapViewController
-//            svc.detailedOrder = selectedOrder
-//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

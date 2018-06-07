@@ -13,7 +13,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var detailedOrder: Order?
+    public var detailedOrder: Order?
     
     //    @IBOutlet weak var mapView: UIView!
     
@@ -53,7 +53,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
-    func getRoute() {
+    private func getRoute() {
         map.delegate = self
         map.showsScale = true
         map.showsPointsOfInterest = true

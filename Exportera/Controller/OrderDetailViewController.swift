@@ -16,8 +16,8 @@ class OrderDetailViewController: UIViewController, GMSMapViewDelegate {
     var pointLocation: CLLocation!
     var geocoder = CLGeocoder()
     
-    var detailedOrder: Order?
-    var keyOrder : String?
+    public var detailedOrder: Order?
+    public var keyOrder : String?
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -43,8 +43,6 @@ class OrderDetailViewController: UIViewController, GMSMapViewDelegate {
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             currentLocation = locManager.location
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
             
             LocationManager.sharedInstance.getReverseGeoCodedLocation(address: (detailedOrder?.destination)!, completionHandler: { (location:CLLocation?, placemark:CLPlacemark?, error:NSError?) in
                 if error != nil {
@@ -65,20 +63,19 @@ class OrderDetailViewController: UIViewController, GMSMapViewDelegate {
                 
                 self.loadOrder()
                 self.loadMap()
-               
+                
             })
         } else { print("error")}
     }
     
-    func loadMap() {
+    private func loadMap() {
         let camera = GMSCameraPosition.camera(withLatitude: self.pointLocation.coordinate.latitude, longitude: pointLocation.coordinate.longitude, zoom: 6.0)
-    
         let marker = GMSMarker(position: pointLocation.coordinate)
         marker.map = mapView
         mapView?.animate(to: camera)
     }
- 
-    func loadOrder(){
+    
+    private func loadOrder(){
         cityLabel.text = "City: \(detailedOrder?.destination ?? "Город")"
         priceLabel.text = "$\(detailedOrder?.price ?? 0)"
         typeOfOrderLabel.text = "Type of order: \(detailedOrder?.typeOfOder?.getType.lowercased() ?? "груз")"
@@ -87,7 +84,6 @@ class OrderDetailViewController: UIViewController, GMSMapViewDelegate {
         customerNumberLabel.text = "Mobile number: \(detailedOrder?.customerNumber ?? 0000)"
         distanceLabel.text = "Distance: \(detailedOrder?.distance ?? 0) km"
     }
-    
     
     override func prepare (for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "goToMap") {

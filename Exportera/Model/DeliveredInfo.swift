@@ -14,7 +14,7 @@ class DeliveredInfo: NSObject {
     var startDate : Date?
     var endDate : Date?
     
-    func setUser(id: String?) {
+    public func setUser(id: String?) {
         self.idUser = id
     }
 }

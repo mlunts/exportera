@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var gifView: UIImageView!
     
-    var ref: DatabaseReference!
+    private var ref: DatabaseReference!
     
     override func viewDidLoad() {
         gifView.loadGif(name: "truck-animation")
@@ -42,8 +42,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func showAlert(title: String, msg: String, actions:[UIAlertAction]?) {
-        
+    private func showAlert(title: String, msg: String, actions:[UIAlertAction]?) {
         var actions = actions
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         
