@@ -26,8 +26,3 @@ Follow the directions on the map, get cargo to the customer safely and make mone
 </ul>
 
 
-### REQUIREMENTS
-<ul><li>Xcode 9.4.1+</li>
-<li>iOS 9.3+</li>
-</ul>
-
